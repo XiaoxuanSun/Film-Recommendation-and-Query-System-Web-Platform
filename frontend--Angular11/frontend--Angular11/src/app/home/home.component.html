@@ -1,0 +1,58 @@
+<div class="app_home">
+  <div class="home_carousel_Div">
+    <app-home-carousel></app-home-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <h2 *ngIf="titleDisplay" class="ContextColor">
+      Continue Watching
+    </h2>
+    <ngb-carousel class="home_six_carousel_ngb-carousel" [showNavigationIndicators]='show'
+      [showNavigationArrows]="showNavigationArrows" [interval]='0'>
+      <ng-template *ngFor="let itemitem of continueList" ngbSlide>
+        <ul class="testurl">
+          <li *ngFor="let i of itemitem">
+            <img [style]="carouselWhith()" class="sixCarouselHover" [src]="i['poster_path']" (click)="routerLink(i['id'],i['type'],i['poster_path'],i['title'])"
+              alt="Random second slide">
+            <!-- <p class="toShow">{{i['title']}}</p> -->
+            <div class="carousel-caption to-show">
+              <p class="toShow">{{i['title']}}</p>
+            </div>
+          </li>
+        </ul>
+      </ng-template>
+    </ngb-carousel>
+
+
+
+    <!-- <ul class="testurl"> -->
+    <!-- <li *ngFor="let item of continueList"> -->
+    <!-- <img  (click)="routerLink(item['id'],item['type'])" alt="Random second slide"> -->
+    <!-- <img [src]="item['poster_path']" (click)="routerLink(item['id'],item['type'])" alt="Random second slide">
+      </li>
+    </ul> -->
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_PopM" [name]="titleName_PopM" [mediaType]="media_Movie">
+    </app-home-six-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_TopM" [name]="titleName_TopM" [mediaType]="media_Movie">
+    </app-home-six-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_TrenM" [name]="titleName_TrenM" [mediaType]="media_Movie">
+    </app-home-six-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_PopT" [name]="titleName_PopT" [mediaType]="media_Tv">
+    </app-home-six-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_TopT" [name]="titleName_TopT" [mediaType]="media_Tv">
+    </app-home-six-carousel>
+  </div>
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_TrenT" [name]="titleName_TrenT" [mediaType]="media_Tv">
+    </app-home-six-carousel>
+  </div>
+</div>

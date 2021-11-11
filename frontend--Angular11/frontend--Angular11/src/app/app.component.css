@@ -1,0 +1,103 @@
+.container {
+  background: #050a31;
+}
+
+.app {
+  background: #050a31;
+
+}
+
+* {
+  color: white;
+}
+
+::ng-deep .bg-dark {
+  background-color: #030c21 !important;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  border-bottom: white 2px solid;
+}
+
+.navbar-nav .active>.nav-link {
+  color: white;
+}
+
+.navbar > button {
+  color: #5f697c;
+  border:#5f697c solid 1px;
+}
+
+/* .nav-link:nth-child(3){
+  color: #939aaf;
+  background: red;
+} */
+
+.nav-link:last-child {
+  color: #939aaf;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: white
+}
+
+.navbar-brand:active {
+  color: white
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus,.nav-link:active {
+  color: white;
+}
+
+.nav-link {
+  float: right;
+  margin-left: 20px;
+}
+
+::ng-deep.dropdown-menu {
+  background: #050a31;
+  border: 1px #595e84 solid;
+
+}
+
+.footer {
+  background: #030c21;
+  /* margin-top: 5%; */
+  height: 6vh;
+}
+
+.footerP {
+  color: white;
+}
+
+.app {
+  min-height: 64vh;
+}
+
+.footerDiv p {
+  text-align: center;
+
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+app-root {
+  background: #050a31;
+}
+
+.footer {
+  margin-top: 15vh;
+}
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: white;
+}

@@ -1,0 +1,209 @@
+@media screen and (max-width: 500px) {
+  .home_carousel_Div{
+    margin: 0 auto;
+    max-width: 80%;
+  }
+  .to-show {
+    display: block;
+    pointer-events: none;
+    width: 100%;
+    left: 0%;
+    text-align: left;
+    /* height: 30%; */
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 60%;
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,1), rgba(0,0,0,1));
+    transition: transform .2s;
+    top: 1rem;
+    transition: all 0.3s;
+    /* transform: scale(1.105); */
+  }
+  .sixCarouselHover:hover + .to-show {
+    transform: scale(1.105);
+  }
+  .testurl .to-show ::ng-deep p {
+    /* margin-left: 5%; */
+    margin-top: 9vh;
+    margin-bottom: 1rem;
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .home_carousel_Div{
+    margin: 0 auto;
+    max-width: 60%;
+  }
+  .to-show {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    text-align: left;
+    /* height: 30%; */
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 65%;
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,1),rgba(0,0,0,1), rgba(0,0,0,1));
+    /* background-image:linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)); */
+    top: 10%;
+    transition: all 0.3s;
+    transform: scale(1.105);
+
+  }
+  .testurl .to-show ::ng-deep p {
+    /* margin-top: 2.5vh; */
+    margin-top: 30%;  
+    position: absolute;
+    margin-bottom: 1rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* .home_carousel_Div{
+  margin: 0 auto;
+  max-width: 60%;
+} */
+
+ngb-carousel{
+  outline: none;
+}
+
+.home_six-carousel_Div{
+  margin: 0 auto;
+  /* width: 90%; */
+}
+.home_six-carousel_Div>.carousel-control-prev {
+  background: black;
+  justify-content: end;
+}
+.app_home{
+  background: #050a31;
+}
+
+.testurl {
+  list-style: none;
+  margin: 0 auto;
+  /* text-align: center; */
+
+}
+
+.testurl li {
+  /* background: red; */
+  display: inline;
+  margin-left: 3%;
+  position:relative;
+}
+
+.testurl li:first-child {
+  margin-left: 10%;
+}
+
+/* .testurl li:hover {
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+} */
+
+.testurl li img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  
+}
+
+/* .testurl li:not(:first-child) {
+  margin-left: 5%;
+} */
+
+.testurl li img {
+  margin: 1rem 0px 3rem 0px;
+  /* width: 220px; */
+  /* height: 250px; */
+  transition: all 0.3s;
+}
+
+.ContextColor {
+  margin: 0 auto;
+  width: 80%;
+  /* margin-top: 1%; */
+  /* margin-bottom: 2%; */
+}
+
+.ContextColor:first-child {
+  margin-top: 1%;
+}
+
+.home_six_carousel_ngb-carousel {
+  /* background: red; */
+  padding: 1rem 7%;
+  border: none;
+  outline: none;
+}
+.home_six_carousel_ngb-carousel ::ng-deep .carousel-control-prev{
+  width: 8%;
+}
+
+.toShow {
+  display: block;
+  pointer-events: none;
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  /* margin: 155% -103%; */
+}
+.sixCarouselHover:hover + .to-show {
+  display: block;
+  /* transform: scale(1.1); */
+}
+
+.sixCarouselHover:hover + .toShow {
+  display: inline;
+  /* transform: scale(1.1); */
+}
+
+/* .to-show {
+  display: none;
+  pointer-events: none;
+  width: 100%;
+  left: 0%;
+  text-align: left;
+  bottom: 0;
+  padding-left: 5%;
+  padding-bottom: 45%;
+  background-image:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  transition: transform .2s;
+  top: 2rem;
+  transform: scale(1.105);
+} */
+
+.home_six_carousel_ngb-carousel ::ng-deep .carousel-control-prev{
+  width: 13%;
+  justify-content: flex-end;
+}
+
+.home_six_carousel_ngb-carousel ::ng-deep .carousel-control-next{
+  width: 13%;
+  justify-content: flex-start;
+}
+
+/* .testurl .to-show ::ng-deep p {
+  margin-top: 1vh;
+  margin-bottom: 1rem;
+  font-size: 2vh;
+} */
+
+/* .to-show {
+  display: none;
+  pointer-events: none;
+  width: 100%;
+  left: 0%;
+  text-align: left;
+  bottom: 0;
+  padding-left: 5%;
+  padding-bottom: 30%;
+  background-image:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  transition: transform .2s;
+  top: 80px;
+  transform: scale(1.1);
+} */

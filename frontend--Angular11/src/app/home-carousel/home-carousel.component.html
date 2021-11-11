@@ -1,0 +1,20 @@
+<!-- [class]="Device==1?['ngb-carousel1']:['ngb-carousel2']" -->
+<!-- class="ngb-carousel2" -->
+<ngb-carousel [interval]="5000" [pauseOnHover]="pauseOnHover">
+  <ng-template *ngFor="let item of movies" ngbSlide>
+    <!-- <div  class="picsum-img-wrapper" (mouseover)="showName=true" (mouseout)="showName=false"> -->
+    <div class="picsum-img-wrapper">
+      <!-- <div class="movieWrapper"> -->
+
+      <img class="img-fluid imgMovie" [src]="item['backdrop_path']" (click)="routerLink(item['id']+'',item['poster_path'],item['title'])" alt="Random first slide">
+      <!-- <span [hidden]="!showName"></span> -->
+      <!-- <div class="movieWrapperImg" [ngStyle]="movieWrapperImgStyle(item['backdrop_path']) " (click)="routerLink(item['id']+'',item['poster_path'],item['title'])" (mouseout)="movieWrapperImgStyleMouseout()" (mouseover)="movieWrapperImgStyleMousseenter()"> -->
+
+      <!-- </div> -->
+    </div>
+    <div class="carousel-caption to-show">
+      <p>{{item['title']}}</p>
+    </div>
+  </ng-template>
+
+</ngb-carousel>

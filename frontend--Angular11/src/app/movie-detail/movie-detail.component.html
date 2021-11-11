@@ -1,0 +1,180 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="embed-responsive embed-responsive-16by9">
+        <youtube-player [videoId]="obj.movieVideo[0].key" suggestedQuality="highres" [width]="500">
+        </youtube-player>
+      </div>
+      <!-- <div class="videoWrapper">
+        <iframe [src]="trust(obj.movieVideo[0].key)" allowfurlullscreen></iframe>
+    </div> -->
+    </div>
+    <div class="col-sm-4">
+      <div class="detail-content">
+        <h2>{{obj.movieDetial[0].title}}</h2>
+        <p style="font-size:18px;font-style:italic;color: #bfc5d3;">{{obj.movieDetial[0].tagline}}</p>
+        <p style="font-size:18px;color:#bfc5d3;">{{obj.movieDetial[0].release_date.substr(0,4)}}
+          | ★ {{obj.movieDetial[0].vote_average}}
+          | {{obj.movieDetial[0].runtime}}</p>
+        <p *ngIf="obj.movieDetial[0].genres.length>0">Genres:
+          <span *ngFor="let item of obj.movieDetial[0].genres ;let i = index"
+            style="color:#bfc5d3;">{{item.name}}{{i == obj.movieDetial[0].genres.length -1?"":", "}}</span>
+        </p>
+        <p>Spoken Languages: <span style="color:#bfc5d3;">{{obj.movieDetial[0].spoken_languages}}</span></p>
+      </div>
+      <div class="alert-button">
+        <p>
+          <button class="btn btn-primary" (click)="MyListFun()">{{movieAction}}</button>
+        </p>
+        <ngb-alert #selfClosingAlert [type]="alertColor" type="success" *ngIf="successMessage"
+          (closed)="successMessage = ''">
+          {{ successMessage }}
+        </ngb-alert>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="obj.movieDetial[0].overview">
+    <h5 style="margin-top: 1%;">Description</h5>
+    <p style="color: #a8a7b1;">{{obj.movieDetial[0].overview}}</p>
+  </div>
+  <div>
+    <h5>Share</h5>
+    <div>
+      <a target="_blank" class="fa fa-twitter tw" style="font-size:36px; text-decoration:none;text-align:center;"
+        href="https://twitter.com/intent/tweet?hashtags=USC&hashtags=CSCI571&hashtags=FightOn&text=Watch%20{{twitterUrlTitle}}&url=https://www.youtube.com/watch?v={{obj.movieVideo[0].key}}"></a>
+      <!-- <div class="col-sm-1"> -->
+      <a target="_blank" class="fa fa-facebook-square fb" style="font-size:36px; text-decoration:none;"
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch?v={{obj.movieVideo[0].key}}%0a;src=sdkpreparse"></a>
+    </div>
+  </div>
+
+  <div *ngIf="obj.movieCast.length>0">
+    <h2 style="margin-top: 2%;">Full Cast and Crew</h2>
+    <div class="cardWrapper" >
+      <div class="card castCard" *ngFor="let item of obj.movieCast" (click)="open(item.id,item.name,item.profile_path,longContent)">
+        <img class="card-img-top" src={{item.profile_path}}>
+        <div class="card-body">
+          <div style="color:black;font-weight: bold;text-align: center;">{{item.name}}</div>
+          <div style="color:black;font-weight: bold;text-align: center;">AS</div>
+          <div style="color:black;text-align: center;word-break:normal;">{{item.character}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="obj.movieReview.length>0" class="reviews">
+    <div style="font-size: 2rem;font-weight: 500;">Reviews&emsp;<span style="color: #a8a7b1;">{{obj.movieReview.length}}</span></div>
+    <div class="review-content">
+      <div class="review-contentDiv" *ngFor="let item of obj.movieReview">
+        <div class="row">
+          <div class="col-sm-2 reviewContentLeft">
+            <img [src]="item.avatar_path" style="width:100px;height:100px;border-radius: 50%;">
+          </div>
+          <div class="col-sm-10 reviewContentRight">
+            <div style="font-size: 1.5rem;font-weight: 500;">A review created by {{item.author}}
+              <span class="reviewRating" [style]="reviewRating()">★ {{item.rating}}</span>
+            </div>
+            <br>
+            <!-- <div>{{item.created_at | date:'medium'}}</div> -->
+            <div style="color: #a8a7b1;">Written by {{item.author}} on {{item.created_at | date: 'MMMM d, y, h:mm:ss a'}}</div>
+            <br>
+            <div class="reviewCont">{{item.content}}</div>
+            <br>
+            <a [href]="item.url" target="_blank" style="text-decoration:underline;color:#000080;">Read the rest</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="recom-movie">
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_RecomM" [name]="titleName_RecomM" [mediaType]="media_Movie">
+    </app-home-six-carousel>
+  </div>
+</div>
+<div class="simil-movie">
+  <div class="home_six-carousel_Div">
+    <app-home-six-carousel [movieUrl]="movieUrl_SimilM" [name]="titleName_SimilM" [mediaType]="media_Movie">
+    </app-home-six-carousel>
+  </div>
+</div>
+
+<!-- <div class="castModal"> -->
+<ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{castName}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- <form> -->
+      <!-- <label for="dateOfBirth">{{castDetails.castDetial[0].name}}</label> -->
+      <!-- <div class="form-group row"> -->
+      <div class="row">
+        <div class="col-sm-4">
+          <img class="castProfile" src={{castProfile}}>
+        </div>
+        <div class="col-sm-8">
+          <div *ngIf="castDetails.castDetial[0].birthday">Birth: {{castDetails.castDetial[0].birthday}}</div>
+          <div *ngIf="castDetails.castDetial[0].place_of_birth">Birth Place:
+            {{castDetails.castDetial[0].place_of_birth}}</div>
+          <div *ngIf="castDetails.castDetial[0].gender">Gender: {{castDetails.castDetial[0].gender}}</div>
+          <div *ngIf="castDetails.castDetial[0].homepage">Website: <a target="_blank" href="{{castDetails.castDetial[0].homepage}}">{{castDetails.castDetial[0].homepage}}</a></div>
+          <div *ngIf="castDetails.castDetial[0].known_for_department">Known for:
+            {{castDetails.castDetial[0].known_for_department}}</div>
+          <div *ngIf="castDetails.castDetial[0].also_known_as.length>0">Also Known as:
+            {{castDetails.castDetial[0].also_known_as}}
+          </div>
+          <br>
+          <span>
+            <span *ngIf="castDetails.externalID[0].imdb_id"><a target="_blank" class="fa fa-imdb"
+                style="font-size:28px; text-decoration:none;color:#e2b62b;" ngbPopover="Visit IMDB"
+                triggers="mouseenter:mouseleave"
+                href="https://www.imdb.com/name/{{castDetails.externalID[0].imdb_id}}"></a>
+            </span>
+            <span *ngIf="castDetails.externalID[0].instagram_id"><a target="_blank" class="fa fa-instagram"
+                style="font-size:28px; text-decoration:none;color:purple;" ngbPopover="Visit Instagram"
+                triggers="mouseenter:mouseleave"
+                href="https://www.instagram.com/{{castDetails.externalID[0].instagram_id}}"></a>
+            </span>
+            <span *ngIf="castDetails.externalID[0].facebook_id"><a target="_blank" class="fa fa-facebook-square"
+                style="font-size:28px; text-decoration:none;color:blue;" ngbPopover="Visit Facebook"
+                triggers="mouseenter:mouseleave"
+                href="https://www.facebook.com/{{castDetails.externalID[0].facebook_id}}"></a>
+            </span>
+            <span *ngIf="castDetails.externalID[0].twitter_id"><a target="_blank" class="fa fa-twitter"
+                style="font-size:28px; text-decoration:none;color:#1e90ff;" ngbPopover="Visit Twitter"
+                triggers="mouseenter:mouseleave"
+                href="https://www.twitter.com/{{castDetails.externalID[0].twitter_id}}"></a>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="biography" *ngIf="castDetails.castDetial[0].biography">
+        <h3>Biography</h3>
+        <p>{{castDetails.castDetial[0].biography}}</p>
+      </div>
+    </div>
+</ng-template>
+<!-- </div> -->
+
+<!-- <div class="casts" *ngIf="obj.movieCast.length>0">
+    <h2 style="margin-top: 2%;">Full Cast and Crew</h2>
+    <ul class="castsUl">
+      <li class="castsUlLi" *ngFor="let item of obj.movieCast" [attr.data]="item.profile_path"
+        [ngStyle]="{'background': item.profile_path}" (click)="open(item.id,item.name,item.profile_path,content)">
+        <div class="liImgDiv">
+          <img src={{item.profile_path}} >
+        </div>
+        <div class="liDiv">
+          <div style="font-weight: bold;">{{item.name}}</div>
+          <div style="font-weight: bold;">AS</div>
+          <div style="text-align: center;word-break:normal;">{{item.character}}</div>
+          <br>
+        </div>
+      </li>
+    </ul>
+  </div> -->

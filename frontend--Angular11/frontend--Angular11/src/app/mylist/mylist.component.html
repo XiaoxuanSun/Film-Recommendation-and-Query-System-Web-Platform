@@ -1,0 +1,17 @@
+<div class="myList container" *ngIf="MoveLst.length>0">
+    <h2 class="ContextColor">My WatchList</h2>
+    <ul class="testurl">
+
+      <li *ngFor="let item of MoveLst">
+        <!-- <img  (click)="routerLink(item['id'],item['type'])" alt="Random second slide"> -->
+        <img [style]="carouselWhith()" [src]="item['poster_path']" (click)="routerLink(item['id'],item['type'],item['poster_path'],item['title'])" alt="Random second slide">
+        <div class="carousel-caption to-show">
+          <p class="toShow">{{item['title']}}</p>
+        </div>
+      </li>
+    </ul>
+  
+</div>
+<div class="NoWatchlist" *ngIf="MoveLst.length<=0">
+  <h1>No items found in Watchlist.</h1>
+</div>

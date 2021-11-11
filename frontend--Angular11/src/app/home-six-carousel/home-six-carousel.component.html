@@ -1,0 +1,48 @@
+<div *ngIf="items.length>0">
+  <h2 class="ContextColor">{{name}}</h2>
+  <ngb-carousel class="home_six_carousel_ngb-carousel" [showNavigationIndicators]='show' [interval]='0'>
+    <ng-template *ngFor="let itemitem of items" ngbSlide>
+      <ul class="testurl">
+        <li *ngFor="let i of itemitem">
+          <!-- <div class="sixCarouselHover"> -->
+          <img [style]="carouselWhith()" class="sixCarouselHover" [src]="i['poster_path']"
+            (click)="routerLink(i['id'],i['poster_path'],i['title'])" alt="Random second slide">
+          <!-- </div> -->
+          <!-- <div class="toShow"> -->
+          <div class="carousel-caption to-show">
+            <p>{{i['title']}}</p>
+          </div>
+
+          <!-- </div> -->
+          <!-- <p *ngIf="showName">{{i['title']}}</p> -->
+        </li>
+      </ul>
+    </ng-template>
+  </ngb-carousel>
+  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol  class="carousel-indicators">
+        <li *ngFor="let itemitem of items;let i = index"
+         data-target="#carouselExampleIndicators"  
+        [attr.data-slide-to]="i" [ngClass]="i==0?'active':''" >
+        </li>
+    </ol>
+    <div class="carousel-inner home_six_carousel_ngb-carousel">
+      <div *ngFor="let itemitem of items;let i = index"[ngClass]="i==0?'carousel-item active':'carousel-item'">
+        <ul class="testurl">
+          <li *ngFor="let i of itemitem">
+            <img [src]="i['poster_path']" alt="Random second slide">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> -->
+
+</div>
